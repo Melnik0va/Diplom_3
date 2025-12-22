@@ -1,7 +1,6 @@
 import allure 
 
 from data import URLS
-from locators.main_page_locators import MainPageLocators
 from locators.order_feed_locators import OrderFeedLOcators
 from pages.base_page import BasePage
 
@@ -11,7 +10,7 @@ class OrderFeedPage(BasePage):
 
     @allure.step('Переходим на страницу "Лента заказов"')
     def open_order_feed_page(self): 
-        self.open_url(MainPageLocators.LOADING_ANIMATION, URLS.ORDER_FEED_URL)
+        self.open_url(URLS.ORDER_FEED_URL)
 
     @allure.step('Получаем номер заказа')
     def get_order_number(self, number): 

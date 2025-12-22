@@ -3,20 +3,26 @@ from selenium.webdriver.support import expected_conditions as EC
 from seletools.actions import drag_and_drop
 from data import TIMEOUT
 
+from locators.main_page_locators import MainPageLocators
+
 class BasePage: 
 
     def __init__ (self, driver):
         self.driver = driver
 
-    def wait_loading(self, locator, timeout=TIMEOUT):
-        WebDriverWait(self.driver, timeout).until(EC.invisibility_of_element(locator))
+    @property
+    def current_url(self):
+        return self.driver.current_url
 
-    def open_url(self, locator, url): 
+    def wait_loading(self, timeout=TIMEOUT):
+        WebDriverWait(self.driver, timeout).until(EC.invisibility_of_element(MainPageLocators.LOADING_ANIMATION))
+
+    def open_url(self, url): 
         self.driver.get(url)
-        self.wait_loading(locator)
+        self.wait_loading()
 
-    def click_to_element(self, locator_1, locator, timeout=TIMEOUT):
-        self.wait_loading(locator_1)
+    def click_to_element(self, locator, timeout=TIMEOUT):
+        self.wait_loading()
         WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(locator))
         return self.driver.find_element(*locator).click()
     

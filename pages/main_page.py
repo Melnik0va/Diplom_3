@@ -11,19 +11,19 @@ class MainPage(BasePage):
 
     @allure.step('Открываем главную страницу')
     def open_main_page(self): 
-        self.open_url(MainPageLocators.LOADING_ANIMATION, URLS.BASE_URL)
+        self.open_url(URLS.BASE_URL)
 
     @allure.step('Нажимаем на кнопку "Личный кабинет"')
     def click_account_button(self): 
-        self.click_to_element(MainPageLocators.LOADING_ANIMATION, MainPageLocators.ACCOUNT_BUTTON)
+        self.click_to_element(MainPageLocators.ACCOUNT_BUTTON)
 
     @allure.step('Нажимаем на кнопку "Лента заказов"')
     def click_order_feed_button(self): 
-        self.click_to_element(MainPageLocators.LOADING_ANIMATION, MainPageLocators.ORDER_FEED_BUTTON)
+        self.click_to_element(MainPageLocators.ORDER_FEED_BUTTON)
 
     @allure.step('Нажимаем на кнопку "Конструктор"')
     def click_constructor_button(self): 
-        self.click_to_element(MainPageLocators.LOADING_ANIMATION, MainPageLocators.CONSTRUCTOR_BUTTON)
+        self.click_to_element(MainPageLocators.CONSTRUCTOR_BUTTON)
 
     @allure.step('Получаем название ингредиента по выбранному номеру')
     def get_name_ingredient_by_number(self, number): 
@@ -41,7 +41,7 @@ class MainPage(BasePage):
     
     @allure.step('Закрываем окно с деталями')
     def click_on_close_button_opened_window(self): 
-        self.click_to_element(MainPageLocators.LOADING_ANIMATION, MainPageLocators.CLOSE_OPENED_WINDOW_INGREDIENT_DETAILS)
+        self.click_to_element(MainPageLocators.CLOSE_OPENED_WINDOW_INGREDIENT_DETAILS)
 
     @allure.step('Проверка невидимости эелемента')
     def check_invisible_window_with_details(self): 
@@ -60,7 +60,7 @@ class MainPage(BasePage):
 
     @allure.step('Нажиаем на кнопку "Оформить"')
     def click_on_order_button(self): 
-        self.click_to_element(MainPageLocators.LOADING_ANIMATION, MainPageLocators.ORDER_BUTTON)
+        self.click_to_element(MainPageLocators.ORDER_BUTTON)
 
     @allure.step('Получаем статус заказа')
     def check_order_status(self): 
@@ -68,7 +68,7 @@ class MainPage(BasePage):
     
     @allure.step('Ждем загрузку заказа')
     def wait_loading_create_order(self): 
-        self.wait_loading(MainPageLocators.LOADING_ANIMATION)
+        self.wait_loading()
 
     @allure.step('Создаем заказ')
     def create_order(self): 

@@ -1,13 +1,8 @@
 import allure
-import time
-
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 
 from data import URLS
 from pages.base_page import BasePage
 from locators.personal_account_locators import PersonalAccountLocators
-from locators.main_page_locators import MainPageLocators
 
 class PersonalAccountPage(BasePage): 
     def __init__(self, driver):
@@ -15,15 +10,15 @@ class PersonalAccountPage(BasePage):
 
     @allure.step('Открываем страницу авторизации')
     def open_login_url(self): 
-        self.open_url(MainPageLocators.LOADING_ANIMATION, URLS.LOGIN_URL)
+        self.open_url(URLS.LOGIN_URL)
 
     @allure.step('Открываем страницу аккаунта пользователя')
     def open_account_url(self): 
-        self.open_url(MainPageLocators.LOADING_ANIMATION, URLS.ACCOUNT_URL)
+        self.open_url(URLS.ACCOUNT_URL)
 
     @allure.step('Кликаем по кнопке "Восстановить пароль"')
     def click_button_forgot_password(self): 
-        self.click_to_element(MainPageLocators.LOADING_ANIMATION, PersonalAccountLocators.BUTTON_FORGOT_PASSWORD)
+        self.click_to_element(PersonalAccountLocators.BUTTON_FORGOT_PASSWORD)
 
     @allure.step('Ждем полную загрузку страницы авторизации')
     def wait_to_autoform(self): 
@@ -39,7 +34,7 @@ class PersonalAccountPage(BasePage):
 
     @allure.step('Кликаем по кнопке "Войти"')
     def click_to_login_button(self): 
-        self.click_to_element(MainPageLocators.LOADING_ANIMATION, PersonalAccountLocators.BUTTON_LOGIN)
+        self.click_to_element(PersonalAccountLocators.BUTTON_LOGIN)
 
     @allure.step('Заполняем форму авторизации')
     def authorization_user(self, email, password): 
@@ -49,11 +44,11 @@ class PersonalAccountPage(BasePage):
 
     @allure.step('Кликаем по кнопке "История заказов"')
     def click_to_histrory_orders(self): 
-        self.click_to_element(MainPageLocators.LOADING_ANIMATION, PersonalAccountLocators.BUTTON_HISTORY)
+        self.click_to_element(PersonalAccountLocators.BUTTON_HISTORY)
 
     @allure.step('Кликаем по кнопке "Выход"')
     def click_exit_button(self): 
-        self.click_to_element(MainPageLocators.LOADING_ANIMATION, PersonalAccountLocators.BUTTON_EXIT)
+        self.click_to_element(PersonalAccountLocators.BUTTON_EXIT)
         
     @allure.step('Дожидаемся загрузки страницы авторизации')
     def wait_login_user(self):

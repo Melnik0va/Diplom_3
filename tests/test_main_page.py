@@ -13,7 +13,7 @@ class TestMainPage:
         main_page.click_order_feed_button()
         main_page.click_constructor_button()
 
-        assert driver.current_url == URLS.BASE_URL
+        assert main_page.current_url == URLS.BASE_URL
 
     @allure.title('Переход по клику на "Лента заказов"')
     def test_click_on_order_feed_button(self, driver): 
@@ -21,7 +21,7 @@ class TestMainPage:
         main_page.open_main_page()
         main_page.click_order_feed_button()
 
-        assert driver.current_url == URLS.ORDER_FEED_URL
+        assert main_page.current_url == URLS.ORDER_FEED_URL
 
     @allure.title('Открытие всплывающего окна с деталями ингредиента по клику')
     def test_show_details_ingredient(self, driver): 
