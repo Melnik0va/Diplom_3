@@ -1,5 +1,4 @@
 import allure
-import time 
 
 from data import URLS
 from pages.personal_account_page import PersonalAccountPage
@@ -13,7 +12,7 @@ class TestRecoveryPassword:
         login_page.open_login_url()
         login_page.click_button_forgot_password() 
 
-        assert driver.current_url == URLS.FORGOT_PASSWORD
+        assert login_page.current_url == URLS.FORGOT_PASSWORD
 
     @allure.title('Ввод почты и клик по кнопке "Восстановить"')
     def test_recovery_password_with_email(self, driver, create_user): 
@@ -25,7 +24,7 @@ class TestRecoveryPassword:
         recovery_page.click_to_recovery_button()
         recovery_page.wait_loading_page()
 
-        assert driver.current_url == URLS.RESET_URL
+        assert recovery_page.current_url == URLS.RESET_URL
 
     @allure.title('Клик по кнопке показать/скрыть пароль делает поле активным - подсвечивает его')
     def test_click_eye_button_and_show_password(self, driver, create_user): 

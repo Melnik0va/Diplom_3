@@ -9,7 +9,7 @@ from selenium import webdriver
 from data import URLS, Browser
 import helpers
 
-@pytest.fixture(params=[Browser.Firefox, Browser.Firefox])
+@pytest.fixture(params=[Browser.Chrome, Browser.Firefox])
 def driver(request): 
     with allure.step(f'Запускаем браузер {request.param}'): 
         if request.param == Browser.Firefox:
